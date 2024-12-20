@@ -4,95 +4,401 @@
       "name": "CNN Top Stories",
       "url": "http://rss.cnn.com/rss/cnn_topstories.rss",
       "category": "General",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "BBC News",
       "url": "https://feeds.bbci.co.uk/news/rss.xml",
       "category": "General",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "Google News",
       "url": "https://news.google.com/rss",
       "category": "General",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "NPR News",
       "url": "https://feeds.npr.org/1001/rss.xml",
       "category": "General",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "Reuters Top News",
       "url": "http://feeds.reuters.com/reuters/topNews",
       "category": "General",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "TechCrunch",
       "url": "https://techcrunch.com/feed/",
       "category": "Technology",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "Wired",
       "url": "https://www.wired.com/feed/rss",
       "category": "Technology",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "ESPN",
       "url": "https://www.espn.com/espn/rss/news",
       "category": "Sports",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "The Verge",
       "url": "https://www.theverge.com/rss/index.xml",
       "category": "Technology",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "Scientific American",
       "url": "http://rss.sciam.com/ScientificAmerican-Global",
       "category": "Science",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "National Geographic",
       "url": "https://www.nationalgeographic.com/rss/index.html",
       "category": "Science",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "The Economist",
       "url": "https://www.economist.com/rss",
       "category": "Business",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "Financial Times",
       "url": "https://www.ft.com/rss/home",
       "category": "Business",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "Entertainment Weekly",
       "url": "https://ew.com/feed/",
       "category": "Entertainment",
+      "contentType": "rss",
       "enabled": true
     },
     {
       "name": "Variety",
       "url": "https://variety.com/feed/",
       "category": "Entertainment",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "NRK News",
+      "url": "https://www.nrk.no/nyheter/toppsaker.rss",
+      "category": "General",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "NRK Sports",
+      "url": "https://www.nrk.no/sport/toppsaker.rss",
+      "category": "Sports",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "NRK Culture",
+      "url": "https://www.nrk.no/kultur/toppsaker.rss",
+      "category": "Culture",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "NRK Regional",
+      "url": "https://www.nrk.no/distrikt/toppsaker.rss",
+      "category": "General",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "NRK Entertainment",
+      "url": "https://www.nrk.no/underholdning/toppsaker.rss",
+      "category": "Entertainment",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "NRK Science",
+      "url": "https://www.nrk.no/viten/toppsaker.rss",
+      "category": "Science",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "NRK Debate",
+      "url": "https://www.nrk.no/ytring/toppsaker.rss",
+      "category": "Opinion",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "VG Latest News",
+      "url": "https://www.vg.no/rss/feed/forsiden/",
+      "category": "General",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "VG Sports",
+      "url": "https://www.vg.no/rss/feed/sport/",
+      "category": "Sports",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "VG Entertainment",
+      "url": "https://www.vg.no/rss/feed/rampelys/",
+      "category": "Entertainment",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "VG Opinions",
+      "url": "https://www.vg.no/rss/feed/meninger/",
+      "category": "Opinion",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "VG Consumer",
+      "url": "https://www.vg.no/rss/feed/forbruker/",
+      "category": "Business",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Top Stories",
+      "url": "https://www.theguardian.com/rss",
+      "category": "General",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian World News",
+      "url": "https://www.theguardian.com/world/rss",
+      "category": "General",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian UK News",
+      "url": "https://www.theguardian.com/uk-news/rss",
+      "category": "General",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian US News",
+      "url": "https://www.theguardian.com/us-news/rss",
+      "category": "General",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Politics",
+      "url": "https://www.theguardian.com/politics/rss",
+      "category": "Politics",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Environment",
+      "url": "https://www.theguardian.com/environment/rss",
+      "category": "Science",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Technology",
+      "url": "https://www.theguardian.com/technology/rss",
+      "category": "Technology",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Business",
+      "url": "https://www.theguardian.com/business/rss",
+      "category": "Business",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Education",
+      "url": "https://www.theguardian.com/education/rss",
+      "category": "Education",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Science",
+      "url": "https://www.theguardian.com/science/rss",
+      "category": "Science",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Sport",
+      "url": "https://www.theguardian.com/sport/rss",
+      "category": "Sports",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Football",
+      "url": "https://www.theguardian.com/football/rss",
+      "category": "Sports",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Culture",
+      "url": "https://www.theguardian.com/culture/rss",
+      "category": "Culture",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Film",
+      "url": "https://www.theguardian.com/film/rss",
+      "category": "Entertainment",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Music",
+      "url": "https://www.theguardian.com/music/rss",
+      "category": "Entertainment",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Books",
+      "url": "https://www.theguardian.com/books/rss",
+      "category": "Culture",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Art and Design",
+      "url": "https://www.theguardian.com/artanddesign/rss",
+      "category": "Culture",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Stage",
+      "url": "https://www.theguardian.com/stage/rss",
+      "category": "Entertainment",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian TV and Radio",
+      "url": "https://www.theguardian.com/tv-and-radio/rss",
+      "category": "Entertainment",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Games",
+      "url": "https://www.theguardian.com/games/rss",
+      "category": "Entertainment",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Fashion",
+      "url": "https://www.theguardian.com/fashion/rss",
+      "category": "Lifestyle",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Life and Style",
+      "url": "https://www.theguardian.com/lifeandstyle/rss",
+      "category": "Lifestyle",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Travel",
+      "url": "https://www.theguardian.com/travel/rss",
+      "category": "Travel",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Food",
+      "url": "https://www.theguardian.com/food/rss",
+      "category": "Lifestyle",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Media",
+      "url": "https://www.theguardian.com/media/rss",
+      "category": "Business",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Money",
+      "url": "https://www.theguardian.com/money/rss",
+      "category": "Business",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Society",
+      "url": "https://www.theguardian.com/society/rss",
+      "category": "General",
+      "contentType": "rss",
+      "enabled": true
+    },
+    {
+      "name": "Guardian Law",
+      "url": "https://www.theguardian.com/law/rss",
+      "category": "General",
+      "contentType": "rss",
       "enabled": true
     }
   ],
   "interests": [],
   "categories": [
-    "General"
+    "General",
+    "Technology",
+    "Sports",
+    "Entertainment",
+    "Science",
+    "Business",
+    "Culture",
+    "Politics",
+    "Education",
+    "Opinion",
+    "Lifestyle",
+    "Travel"
   ]
 }

@@ -643,36 +643,104 @@ func (s *NewsService) FilterNews(items []models.NewsItem) []models.NewsItem {
 }
 
 func (s *NewsService) GetTrendingTopics(items []models.NewsItem) []TrendingTopic {
+	// Map to store topic frequencies
 	topicFrequency := make(map[string]int)
+
+	// Common English stop words
 	stopWords := map[string]bool{
-		"the": true, "be": true, "to": true, "of": true, "and": true,
-		"a": true, "in": true, "that": true, "have": true, "i": true,
-		"it": true, "for": true, "not": true, "on": true, "with": true,
-		"he": true, "as": true, "you": true, "do": true, "at": true,
+		"a": true, "about": true, "above": true, "after": true, "again": true, "against": true, "all": true,
+		"am": true, "an": true, "and": true, "any": true, "are": true, "aren't": true, "as": true, "at": true,
+		"be": true, "because": true, "been": true, "before": true, "being": true, "below": true, "between": true,
+		"both": true, "but": true, "by": true, "can't": true, "cannot": true, "could": true, "couldn't": true,
+		"did": true, "didn't": true, "do": true, "does": true, "doesn't": true, "doing": true, "don't": true,
+		"down": true, "during": true, "each": true, "few": true, "for": true, "from": true, "further": true,
+		"had": true, "hadn't": true, "has": true, "hasn't": true, "have": true, "haven't": true, "having": true,
+		"he": true, "he'd": true, "he'll": true, "he's": true, "her": true, "here": true, "here's": true,
+		"hers": true, "herself": true, "him": true, "himself": true, "his": true, "how": true, "how's": true,
+		"i": true, "i'd": true, "i'll": true, "i'm": true, "i've": true, "if": true, "in": true, "into": true,
+		"is": true, "isn't": true, "it": true, "it's": true, "its": true, "itself": true, "let's": true,
+		"me": true, "more": true, "most": true, "mustn't": true, "my": true, "myself": true, "no": true,
+		"nor": true, "not": true, "of": true, "off": true, "on": true, "once": true, "only": true, "or": true,
+		"other": true, "ought": true, "our": true, "ours": true, "ourselves": true, "out": true, "over": true,
+		"own": true, "same": true, "shan't": true, "she": true, "she'd": true, "she'll": true, "she's": true,
+		"should": true, "shouldn't": true, "so": true, "some": true, "such": true, "than": true, "that": true,
+		"that's": true, "the": true, "their": true, "theirs": true, "them": true, "themselves": true,
+		"then": true, "there": true, "there's": true, "these": true, "they": true, "they'd": true,
+		"they'll": true, "they're": true, "they've": true, "this": true, "those": true, "through": true,
+		"to": true, "too": true, "under": true, "until": true, "up": true, "very": true, "was": true,
+		"wasn't": true, "we": true, "we'd": true, "we'll": true, "we're": true, "we've": true, "were": true,
+		"weren't": true, "what": true, "what's": true, "when": true, "when's": true, "where": true,
+		"where's": true, "which": true, "while": true, "who": true, "who's": true, "whom": true, "why": true,
+		"why's": true, "with": true, "won't": true, "would": true, "wouldn't": true, "you": true, "you'd": true,
+		"you'll": true, "you're": true, "you've": true, "your": true, "yours": true, "yourself": true,
+		"yourselves": true, "said": true, "says": true, "say": true, "also": true, "like": true, "new": true,
+		"one": true, "two": true, "time": true, "year": true, "years": true, "day": true, "days": true,
+		"week": true, "weeks": true, "month": true, "months": true, "today": true, "tomorrow": true,
+		"yesterday": true, "now": true, "later": true, "early": true, "earlier": true, "late": true,
+		"latest": true, "recent": true, "recently": true,
 	}
 
-	// Analyze each news item
-	for _, item := range items {
-		// Combine title and description for analysis
-		text := strings.ToLower(item.Title + " " + item.Description)
+	// Function to extract potential topics from text
+	extractTopics := func(text string) []string {
+		// Convert to lowercase and split into words
+		text = strings.ToLower(text)
 		words := strings.Fields(text)
 
-		// Count word frequencies, excluding stop words
+		// Store potential topics (both single words and bigrams)
+		var topics []string
+		
+		// Extract single words (nouns and important terms)
 		for _, word := range words {
-			// Skip short words and stop words
-			if len(word) < 4 || stopWords[word] {
+			// Clean the word (remove punctuation)
+			word = strings.Trim(word, ".,!?\"'();:[]{}\\|/")
+			
+			// Skip if word is too short, is a stop word, or contains numbers
+			if len(word) < 4 || stopWords[word] || strings.ContainsAny(word, "0123456789") {
 				continue
 			}
-			topicFrequency[word]++
+			
+			topics = append(topics, word)
+		}
+
+		// Extract bigrams (pairs of consecutive words)
+		for i := 0; i < len(words)-1; i++ {
+			word1 := strings.Trim(words[i], ".,!?\"'();:[]{}\\|/")
+			word2 := strings.Trim(words[i+1], ".,!?\"'();:[]{}\\|/")
+
+			// Skip if either word is a stop word or too short
+			if stopWords[word1] || stopWords[word2] || len(word1) < 4 || len(word2) < 4 {
+				continue
+			}
+
+			// Combine words into a bigram
+			bigram := word1 + " " + word2
+			topics = append(topics, bigram)
+		}
+
+		return topics
+	}
+
+	// Process each news item
+	for _, item := range items {
+		// Extract topics from title (weighted more heavily)
+		titleTopics := extractTopics(item.Title)
+		for _, topic := range titleTopics {
+			topicFrequency[topic] += 2 // Weight title topics more
+		}
+
+		// Extract topics from description
+		descTopics := extractTopics(item.Description)
+		for _, topic := range descTopics {
+			topicFrequency[topic]++
 		}
 	}
 
 	// Convert map to slice for sorting
 	var topics []TrendingTopic
-	for word, freq := range topicFrequency {
+	for topic, freq := range topicFrequency {
 		if freq > 1 { // Only include topics that appear more than once
 			topics = append(topics, TrendingTopic{
-				Topic:     word,
+				Topic:     topic,
 				Frequency: freq,
 			})
 		}

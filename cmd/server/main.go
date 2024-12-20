@@ -68,7 +68,7 @@ func setupRoutes(r *gin.Engine, newsHandler *handlers.NewsHandler) {
 	api := r.Group("/api")
 	{
 		api.GET("/news", newsHandler.GetNews)
-		api.GET("/news/trending", newsHandler.GetTrendingTopics)
+		api.GET("/news/trending", newsHandler.GetTrendingTopicsHandler)
 		api.GET("/version", newsHandler.GetVersionHandler)
 		api.GET("/tags", newsHandler.GetTags)
 		api.POST("/tags", newsHandler.CreateTag)
