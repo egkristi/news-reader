@@ -12,14 +12,14 @@
       "url": "https://www.nrk.no/sport/siste.rss",
       "category": "Sports",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "NRK Culture",
       "url": "https://www.nrk.no/kultur/siste.rss",
       "category": "Culture",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "NRK Regional",
@@ -33,7 +33,7 @@
       "url": "https://www.nrk.no/kultur/siste.rss",
       "category": "Entertainment",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "VG Latest News",
@@ -47,70 +47,70 @@
       "url": "https://www.theguardian.com/international/rss",
       "category": "General",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian World News",
       "url": "https://www.theguardian.com/world/rss",
       "category": "General",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian Technology",
       "url": "https://www.theguardian.com/uk/technology/rss",
       "category": "Technology",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian Business",
       "url": "https://www.theguardian.com/uk/business/rss",
       "category": "Business",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian Science",
       "url": "https://www.theguardian.com/science/rss",
       "category": "Science",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian Sport",
       "url": "https://www.theguardian.com/sport/rss",
       "category": "Sports",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian Culture",
       "url": "https://www.theguardian.com/culture/rss",
       "category": "Culture",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian Film",
       "url": "https://www.theguardian.com/film/rss",
       "category": "Entertainment",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian Music",
       "url": "https://www.theguardian.com/music/rss",
       "category": "Entertainment",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     },
     {
       "name": "Guardian Books",
       "url": "https://www.theguardian.com/books/rss",
       "category": "Culture",
       "contentType": "rss",
-      "enabled": false
+      "enabled": true
     }
   ],
   "interests": [],
