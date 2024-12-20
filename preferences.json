@@ -1,0 +1,98 @@
+{
+  "sources": [
+    {
+      "name": "CNN Top Stories",
+      "url": "http://rss.cnn.com/rss/cnn_topstories.rss",
+      "category": "General",
+      "enabled": true
+    },
+    {
+      "name": "BBC News",
+      "url": "https://feeds.bbci.co.uk/news/rss.xml",
+      "category": "General",
+      "enabled": true
+    },
+    {
+      "name": "Google News",
+      "url": "https://news.google.com/rss",
+      "category": "General",
+      "enabled": true
+    },
+    {
+      "name": "NPR News",
+      "url": "https://feeds.npr.org/1001/rss.xml",
+      "category": "General",
+      "enabled": true
+    },
+    {
+      "name": "Reuters Top News",
+      "url": "http://feeds.reuters.com/reuters/topNews",
+      "category": "General",
+      "enabled": true
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "category": "Technology",
+      "enabled": true
+    },
+    {
+      "name": "Wired",
+      "url": "https://www.wired.com/feed/rss",
+      "category": "Technology",
+      "enabled": true
+    },
+    {
+      "name": "ESPN",
+      "url": "https://www.espn.com/espn/rss/news",
+      "category": "Sports",
+      "enabled": true
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "category": "Technology",
+      "enabled": true
+    },
+    {
+      "name": "Scientific American",
+      "url": "http://rss.sciam.com/ScientificAmerican-Global",
+      "category": "Science",
+      "enabled": true
+    },
+    {
+      "name": "National Geographic",
+      "url": "https://www.nationalgeographic.com/rss/index.html",
+      "category": "Science",
+      "enabled": true
+    },
+    {
+      "name": "The Economist",
+      "url": "https://www.economist.com/rss",
+      "category": "Business",
+      "enabled": true
+    },
+    {
+      "name": "Financial Times",
+      "url": "https://www.ft.com/rss/home",
+      "category": "Business",
+      "enabled": true
+    },
+    {
+      "name": "Entertainment Weekly",
+      "url": "https://ew.com/feed/",
+      "category": "Entertainment",
+      "enabled": true
+    },
+    {
+      "name": "Variety",
+      "url": "https://variety.com/feed/",
+      "category": "Entertainment",
+      "enabled": true
+    }
+  ],
+  "interests": [],
+  "categories": [
+    "General"
+  ]
+}
