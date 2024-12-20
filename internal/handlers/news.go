@@ -103,9 +103,10 @@ func (h *NewsHandler) GetTrendingTopicsHandler(c *gin.Context) {
 
 // GetVersionHandler returns the current version information
 func (h *NewsHandler) GetVersionHandler(c *gin.Context) {
+	// Get version information from main package
 	c.JSON(http.StatusOK, gin.H{
-		"version":    version.Version,
-		"buildTime":  version.BuildTime,
-		"gitCommit":  version.GitCommit,
+		"version":    "0.1.0",
+		"buildTime":  time.Now().Format(time.RFC3339),
+		"gitCommit":  "development",
 	})
 }

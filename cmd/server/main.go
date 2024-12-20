@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -12,10 +13,17 @@ import (
 	"github.com/news-reader/internal/services"
 )
 
+var (
+	// Version information
+	Version   = "0.1.0"
+	BuildTime = ""
+	GitCommit = ""
+)
+
 func main() {
 	// Command line flags
 	var (
-		port      = flag.String("port", "8082", "Server port")
+		port      = flag.Int("port", 8082, "Server port")
 		prefsFile = flag.String("prefs", "preferences.json", "Path to preferences file")
 		debug     = flag.Bool("debug", true, "Enable debug mode")
 	)
@@ -48,7 +56,7 @@ func main() {
 	setupRoutes(r, newsHandler)
 
 	// Start server
-	addr := ":" + *port
+	addr := fmt.Sprintf(":%d", *port)
 	log.Printf("Starting server on %s", addr)
 	if err := r.Run(addr); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
@@ -59,13 +67,13 @@ func setupRoutes(r *gin.Engine, newsHandler *handlers.NewsHandler) {
 	// API routes
 	api := r.Group("/api")
 	{
-		api.GET("/news", newsHandler.GetNewsHandler)
-		api.GET("/news/trending", newsHandler.GetTrendingTopicsHandler)
+		api.GET("/news", newsHandler.GetNews)
+		api.GET("/news/trending", newsHandler.GetTrendingTopics)
 		api.GET("/version", newsHandler.GetVersionHandler)
-		api.GET("/tags", newsHandler.GetTagsHandler)
-		api.POST("/tags", newsHandler.CreateTagHandler)
-		api.PUT("/preferences", newsHandler.UpdatePreferencesHandler)
-		api.GET("/preferences", newsHandler.GetPreferencesHandler)
+		api.GET("/tags", newsHandler.GetTags)
+		api.POST("/tags", newsHandler.CreateTag)
+		api.PUT("/preferences", newsHandler.UpdatePreferences)
+		api.GET("/preferences", newsHandler.GetPreferences)
 		api.POST("/news/:id/tags", newsHandler.UpdateNewsTags)
 	}
 

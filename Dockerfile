@@ -18,9 +18,9 @@ COPY . .
 # Build with version information
 RUN CGO_ENABLED=0 GOOS=linux go build \
     -ldflags "-w -s \
-    -X github.com/news-reader/internal/version.Version=${VERSION} \
-    -X github.com/news-reader/internal/version.BuildTime=${BUILD_TIME} \
-    -X github.com/news-reader/internal/version.GitCommit=${GIT_COMMIT}" \
+    -X main.Version=${VERSION} \
+    -X main.BuildTime=${BUILD_TIME} \
+    -X main.GitCommit=${GIT_COMMIT}" \
     -o /news-reader ./cmd/server
 
 # Final stage
