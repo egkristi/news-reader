@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"net/http"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/news-reader/internal/models"
 	"github.com/news-reader/internal/services"
+	"github.com/news-reader/internal/version"
 )
 
 type NewsHandler struct {
@@ -97,16 +97,14 @@ func (h *NewsHandler) GetTrendingTopicsHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"topics": topics,
 		"count":  len(topics),
-		"time":   time.Now().UTC(),
 	})
 }
 
 // GetVersionHandler returns the current version information
 func (h *NewsHandler) GetVersionHandler(c *gin.Context) {
-	// Get version information from main package
 	c.JSON(http.StatusOK, gin.H{
-		"version":    "0.1.0",
-		"buildTime":  time.Now().Format(time.RFC3339),
-		"gitCommit":  "development",
+		"version":   version.Version,
+		"buildTime": version.BuildTime,
+		"gitCommit": version.GitCommit,
 	})
 }

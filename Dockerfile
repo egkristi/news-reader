@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.21-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 # Build arguments for version information
 ARG VERSION=0.1.0
@@ -18,13 +18,13 @@ COPY . .
 # Build with version information
 RUN CGO_ENABLED=0 GOOS=linux go build \
     -ldflags "-w -s \
-    -X main.Version=${VERSION} \
-    -X main.BuildTime=${BUILD_TIME} \
-    -X main.GitCommit=${GIT_COMMIT}" \
+    -X github.com/news-reader/internal/version.Version=${VERSION} \
+    -X github.com/news-reader/internal/version.BuildTime=${BUILD_TIME} \
+    -X github.com/news-reader/internal/version.GitCommit=${GIT_COMMIT}" \
     -o /news-reader ./cmd/server
 
 # Final stage
-FROM alpine:latest
+FROM alpine:3.20
 
 WORKDIR /app
 

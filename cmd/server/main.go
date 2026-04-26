@@ -13,13 +13,6 @@ import (
 	"github.com/news-reader/internal/services"
 )
 
-var (
-	// Version information
-	Version   = "0.1.0"
-	BuildTime = ""
-	GitCommit = ""
-)
-
 func main() {
 	// Command line flags
 	var (

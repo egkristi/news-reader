@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/news-reader/internal/models"
 	"github.com/news-reader/internal/services"
 )
 
@@ -47,23 +46,14 @@ func TestGetTrendingTopicsHandler(t *testing.T) {
 	var response struct {
 		Topics []services.TrendingTopic `json:"topics"`
 		Count  int                      `json:"count"`
-		Time   string                   `json:"time"`
 	}
 
 	if err := json.NewDecoder(w.Body).Decode(&response); err != nil {
 		t.Fatalf("Failed to decode response: %v", err)
 	}
 
-	// Verify response structure
-	if response.Topics == nil {
-		t.Error("Expected non-nil topics array")
-	}
-
+	// Verify response structure (topics can be nil/empty when no news is cached)
 	if response.Count != len(response.Topics) {
 		t.Errorf("Count mismatch: got %d, want %d", response.Count, len(response.Topics))
-	}
-
-	if response.Time == "" {
-		t.Error("Expected non-empty timestamp")
 	}
 }

@@ -128,8 +128,8 @@
     "Lifestyle",
     "Travel"
   ],
-  "contentTypes": null,
-  "apiKeys": null,
+  "contentTypes": ["rss", "video", "podcast"],
+  "apiKeys": {},
   "tags": [],
-  "newsTags": null
+  "newsTags": []
 }

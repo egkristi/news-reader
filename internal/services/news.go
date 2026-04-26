@@ -583,6 +583,12 @@ func (s *NewsService) GetAllNews() []models.NewsItem {
 	for _, items := range s.newsCache {
 		allNews = append(allNews, items...)
 	}
+
+	// Sort by published date (newest first)
+	sort.Slice(allNews, func(i, j int) bool {
+		return allNews[i].Published.After(allNews[j].Published)
+	})
+
 	return allNews
 }
 
