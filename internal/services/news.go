@@ -22,9 +22,9 @@ import (
 type YouTubeFeed struct {
 	XMLName xml.Name `xml:"feed"`
 	Entries []struct {
-		Title     string `xml:"title"`
-		Link      string `xml:"link"`
-		Published string `xml:"published"`
+		Title      string `xml:"title"`
+		Link       string `xml:"link"`
+		Published  string `xml:"published"`
 		MediaGroup struct {
 			Description string `xml:"description"`
 			Thumbnail   struct {
@@ -263,7 +263,7 @@ func (s *NewsService) fetchRSSFeed(src models.NewsSource) ([]models.NewsItem, er
 			IdleConnTimeout:     30 * time.Second,
 		},
 	}
-	
+
 	// Create a request to set custom headers
 	req, err := http.NewRequest("GET", src.URL, nil)
 	if err != nil {
@@ -331,7 +331,7 @@ func (s *NewsService) fetchYouTubeFeed(src models.NewsSource) ([]models.NewsItem
 	client := &http.Client{
 		Timeout: 10 * time.Second,
 	}
-	
+
 	resp, err := client.Get(src.URL)
 	if err != nil {
 		return nil, fmt.Errorf("error fetching YouTube feed from %s: %v", src.Name, err)
@@ -388,7 +388,7 @@ func (s *NewsService) fetchPodcastFeed(src models.NewsSource) ([]models.NewsItem
 	parser.Client = &http.Client{
 		Timeout: 10 * time.Second,
 	}
-	
+
 	feed, err := parser.ParseURL(src.URL)
 	if err != nil {
 		return nil, fmt.Errorf("error parsing podcast feed from %s: %v", src.Name, err)
@@ -457,7 +457,7 @@ func (s *NewsService) fetchAPIContent(src models.NewsSource) ([]models.NewsItem,
 	client := &http.Client{
 		Timeout: 10 * time.Second,
 	}
-	
+
 	req, err := http.NewRequest("GET", src.URL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request for %s: %v", src.Name, err)
@@ -694,17 +694,17 @@ func (s *NewsService) GetTrendingTopics(items []models.NewsItem) []TrendingTopic
 
 		// Store potential topics (both single words and bigrams)
 		var topics []string
-		
+
 		// Extract single words (nouns and important terms)
 		for _, word := range words {
 			// Clean the word (remove punctuation)
 			word = strings.Trim(word, ".,!?\"'();:[]{}\\|/")
-			
+
 			// Skip if word is too short, is a stop word, or contains numbers
 			if len(word) < 4 || stopWords[word] || strings.ContainsAny(word, "0123456789") {
 				continue
 			}
-			
+
 			topics = append(topics, word)
 		}
 

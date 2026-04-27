@@ -14,14 +14,14 @@ func TestGetTrendingTopicsHandler(t *testing.T) {
 	// Setup
 	gin.SetMode(gin.TestMode)
 	r := gin.New()
-	
+
 	// Create a temporary preferences file for testing
 	tmpFile := t.TempDir() + "/prefs.json"
 	service, err := services.NewNewsService(tmpFile)
 	if err != nil {
 		t.Fatalf("Failed to create news service: %v", err)
 	}
-	
+
 	handler := NewNewsHandler(service)
 	r.GET("/api/news/trending", handler.GetTrendingTopicsHandler)
 
